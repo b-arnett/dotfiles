@@ -1,4 +1,4 @@
 # dotfiles
 Personal dot files
 
-commit test
+pull test
