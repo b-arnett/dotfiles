@@ -8,8 +8,23 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Shift C homerow mod",
+                        "description": "Swap caps-lock and esc",
                         "enabled": false,
+                        "manipulators": [
+                            {
+                                "from": { "key_code": "caps_lock" },
+                                "to": { "key_code": "escape" },
+                                "type": "basic"
+                            },
+                            {
+                                "from": { "key_code": "escape" },
+                                "to": { "key_code": "caps_lock" },
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Shift C homerow mod",
                         "manipulators": [
                             {
                                 "from": {
@@ -28,7 +43,6 @@
                     },
                     {
                         "description": "Shift S homerow mod",
-                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
