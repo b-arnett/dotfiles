@@ -1,0 +1,70 @@
+(defcfg
+  input (iokit-name "Apple Internal Keyboard / Trackpad")
+  output (kext)
+)
+
+(defalias
+  qwe (layer-switch qwerty)
+  hdp (layer-switch handsdnprm)
+  num (layer-toggle numpad)
+
+  sft_s (tap-hold-next-release 145 s lsft)
+  alt_n (tap-hold-next-release 145 n lalt)
+  ctl_t (tap-hold-next-release 145 t lctl)
+  met_h (tap-hold-next-release 200 h lmet)
+
+  met_a (tap-hold-next-release 200 a rmet)
+  ctl_e (tap-hold-next-release 145 e rctl)
+  alt_i (tap-hold-next-release 145 i ralt)
+  sft_c (tap-hold-next-release 145 c rsft)
+)
+
+(defsrc 
+esc   f1   f2   f3   f4   f5   f6   f7   f8   f9  f10  f11  f12
+grv    1    2    3    4    5    6    7    8    9   0    -   =  bspc
+tab   q    w    e    r    t    y    u    i    o   p   [   ]   \ 
+caps   a    s    d    f    g    h    j    k    l   ;   '   ret
+lsft    z    x    c    v    b    n    m    ,    .   /  rsft
+fn lctl lalt lmet        spc       rmet  ralt      up
+					    left  down  right
+)
+
+(deflayer base
+caps   f1   f2   f3   f4   f5   @qwe   f7   f8   f9  f10  f11  f12
+grv    1    2    3    4    5    6    7    8    9   0    -   =  bspc
+tab   f    p    d    l    x    z    u    o    y   b   [   ]   \ 
+esc  @sft_s @alt_n @ctl_t @met_h  k  ,  @met_a @ctl_e @alt_i @sft_c  q   ret
+lsft    v    w    g    m    j    ;    .    '    -   /  rsft
+fn lctl lalt      r      spc       bspc  ralt      up
+					    left  down  right
+)
+
+(deflayer qwerty
+esc   f1   f2   f3   f4   f5   @hdp   f7   f8   f9  f10  f11  f12
+grv    1    2    3    4    5    6    7    8    9   0    -   =  bspc
+tab   q    w    e    r    t    y    u    i    o   p   [   ]   \ 
+caps   a    s    d    f    g    h    j    k    l   ;   '   ret
+lsft    z    x    c    v    b    n    m    ,    .   /  rsft
+fn lctl lalt lmet        spc       rmet  ralt      up
+					    left  down  right
+)
+
+(deflayer handsdnprm
+caps   f1   f2   f3   f4   f5   @qwe   f7   f8   f9  f10  f11  f12
+grv    1    2    3    4    5    6    7    8    9   0    -   =  bspc
+tab   f    p    d    l    x    z    u    o    y   b   [   ]   \ 
+esc  @sft_s @alt_n @ctl_t @met_h  k  ,  @met_a @ctl_e @alt_i @sft_c  q   ret
+lsft    v    w    g    m    j    ;    .    '    -   /  rsft
+fn lctl @num      r      spc       bspc  ralt      up
+					    left  down  right
+)
+
+(deflayer numpad
+_   _   _   _   _   _   _   _   _   _   _   _   _  
+_   _   _   _   _   _   _   _   _   _   _   _   _   _
+_   _   _   _   _   _   -   7   8   9   _   _   _   _
+_   _   _   _   _   _   +   4   5   6   *   _   _   
+_   _   _   _   _   _   =   1   2   3   _   _   _  
+_   _   _   _         _      0   _        _     
+					  _   _   _
+)
